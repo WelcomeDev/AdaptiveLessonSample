@@ -1,0 +1,51 @@
+@import "./burger";
+
+@media (max-width: 1800px) {
+  .container {
+    font-size: 24px;
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+//80px на мобилке это многовато, поэтому уменьшаем размер хедера
+$header-height: 60px;
+
+@media (max-width: 970px) {
+  .container {
+    max-width: 700px;
+  }
+  .header__burger {
+    //к сожалению, нельзя использовать extend, было бы правильнее
+    @include burger;
+  }
+  .header__body {
+    height: $header-height;
+  }
+  .header__logo {
+    max-width: $header-height;
+  }
+  .content {
+    padding-top: $header-height;
+  }
+  .header__menu {
+    display: none;
+  }
+  .active {
+    @include menu-active;
+    margin-top: $header-height;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: none;
+  }
+}
+
+
